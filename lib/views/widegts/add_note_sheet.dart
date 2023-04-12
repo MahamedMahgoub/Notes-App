@@ -11,13 +11,13 @@ class AddNoteSheet extends StatelessWidget {
     return Column(
       children: const [
         Padding(
-          padding: EdgeInsets.only(top: 40, bottom: 16),
+          padding: EdgeInsets.only(top: 40, bottom: 16, left: 24, right: 24),
           child: CustomTextField(
             hint: 'Title',
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(bottom: 16),
+          padding: EdgeInsets.symmetric(horizontal: 24),
           child: CustomTextField(
             hint: 'Content',
             maxLines: 5,
