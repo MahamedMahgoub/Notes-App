@@ -25,42 +25,51 @@ class _AddNoteFormState extends State<AddNoteForm> {
       autovalidateMode: autovalidateMode,
       child: Column(
         children: [
-          Padding(
-            padding:
-                const EdgeInsets.only(top: 40, bottom: 16, left: 24, right: 24),
-            child: CustomTextField(
-              onSaved: (value) {
-                title = value;
-              },
-              hint: 'Title',
-            ),
+          const SizedBox(
+            height: 32,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: CustomTextField(
-              onSaved: (value) {
-                subTitle = value;
-              },
-              hint: 'Content',
-              maxLines: 5,
-            ),
-          ),
-          const Spacer(),
-          CustomButtom(
-            onTap: () {
-              if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
-                var noteModel = NoteModel(
-                    title: title!,
-                    subTitle: subTitle!,
-                    date: DateTime.now().toString(),
-                    color: Colors.blue.value);
-                BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
+          CustomTextField(
+            onSaved: (value) {
+              title = value;
             },
+            hint: 'Title',
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          CustomTextField(
+            onSaved: (value) {
+              subTitle = value;
+            },
+            hint: 'Content',
+            maxLines: 5,
+          ),
+          const SizedBox(
+            height: 32,
+          ),
+          BlocBuilder<AddNoteCubit, AddNoteState>(
+            builder: (context, state) {
+              return CustomButtom(
+                isLoading: state is AddNoteLoadingState ? true : false,
+                onTap: () {
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+                    var noteModel = NoteModel(
+                        title: title!,
+                        subTitle: subTitle!,
+                        date: DateTime.now().toString(),
+                        color: Colors.blue.value);
+                    BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+              );
+            },
+          ),
+          const SizedBox(
+            height: 16,
           ),
         ],
       ),
