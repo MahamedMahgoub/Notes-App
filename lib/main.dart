@@ -5,13 +5,12 @@ import 'package:notes_app/bloc_observer.dart';
 import 'package:notes_app/constants.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/views/notes_view.dart';
-
 import 'models/note_model.dart';
 
 void main() async {
   Bloc.observer = MyBlocObserver();
   await Hive.initFlutter();
-  await Hive.openBox(kNoteBox);
+  await Hive.openBox<NoteModel>(kNoteBox);
   // هنا انا بعرف التطبيق انى هتعامل مع النوت موديل ادابتور
   Hive.registerAdapter(NoteModelAdapter());
   runApp(const NotesApp());
