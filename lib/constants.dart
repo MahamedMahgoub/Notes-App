@@ -4,9 +4,12 @@ const kPrimaryColor = Color(0xff62FCD7);
 const kNoteBox = 'Note_Box';
 
 const List<Color> kColors = [
-  Color(0xffAC3931),
+  Color(0xffB9EDDD),
+  Color(0xff577D86),
+  Color(0xff87CBB9),
+  Color(0xffA5C0DD),
+  Color(0xff10A19D),
+  Color(0xffEBD8B2),
   Color(0xffE5D352),
-  Color(0xffD9E76C),
-  Color(0xff537D8D),
-  Color(0xff482C3D),
+  Color(0xff654E92),
 ];
