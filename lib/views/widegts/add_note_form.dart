@@ -6,6 +6,8 @@ import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/widegts/custom_buttom.dart';
 import 'package:notes_app/views/widegts/custom_text_field.dart';
 
+import 'color_list_view.dart';
+
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({super.key});
 
@@ -80,36 +82,6 @@ class _AddNoteFormState extends State<AddNoteForm> {
             height: 18,
           ),
         ],
-      ),
-    );
-  }
-}
-
-class ColorItem extends StatelessWidget {
-  const ColorItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const CircleAvatar(
-      backgroundColor: Colors.blue,
-      radius: 28,
-    );
-  }
-}
-
-class ColorListView extends StatelessWidget {
-  const ColorListView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 28 * 2,
-      child: ListView.builder(
-        itemCount: 7,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return const ColorItem();
-        },
       ),
     );
   }
