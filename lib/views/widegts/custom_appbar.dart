@@ -12,6 +12,12 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
+        Image.asset(
+          'assets/images/applogo.png',
+          width: 40,
+          height: 40,
+        ),
+        const SizedBox(width: 10),
         Text(
           title,
           style: const TextStyle(
